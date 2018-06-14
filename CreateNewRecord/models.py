@@ -16,3 +16,6 @@ class Record(models.Model):
 
 	def SendInfoToDB(self):
 		self.save()
+
+	def __str__(self):
+		return self.start_date.__str__()
