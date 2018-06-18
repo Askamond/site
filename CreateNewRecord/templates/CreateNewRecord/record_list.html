@@ -10,7 +10,7 @@
         <header>
             Анкета участника Всероссийского Экономического Диктанта
         </header>
-        <form action="" method="post">
+        <form action="/check_this" method="post">{% csrf_token %}
             <div>
                 <label>Пол:
                     <select name="gender" required>
@@ -20,7 +20,7 @@
                 </label>
             </div>
             <div>
-                <label>Возраст: <input type="number" required></label>
+                <label>Возраст: <input type="number" name="age" required></label>
             </div>
             <div>
                 <label>Образование:
@@ -37,14 +37,14 @@
             <div>
                 <label>Сфера деятельности:
                     <select name="activity-field" required>
-                        <option value="E">Экономическая сфера</option>
-                        <option value="P">Промышленная сфера</option>
-                        <option value="F">Финансовая сфера</option>
-                        <option value="O">Сфера образования и науки</option>
-                        <option value="T">Сфера торговли</option>
-                        <option value="Y">Сфера услуг</option>
-                        <option value="S">Сельское хозяйство</option>
-                        <option value="A">Другое</option>
+                        <option value="economic">Экономическая сфера</option>
+                        <option value="industrial">Промышленная сфера</option>
+                        <option value="financial">Финансовая сфера</option>
+                        <option value="education-science">Сфера образования и науки</option>
+                        <option value="trading">Сфера торговли</option>
+                        <option value="services">Сфера услуг</option>
+                        <option value="agriculture">Сельское хозяйство</option>
+                        <option value="other">Другое</option>
                     </select>
                 </label>
             </div>
