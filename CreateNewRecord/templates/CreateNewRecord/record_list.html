@@ -10,7 +10,7 @@
         <header>
             Анкета участника Всероссийского Экономического Диктанта
         </header>
-        <form action="" method="post">
+        <form action="/check_this" method="post">
             <div>
                 <label>Пол:
                     <select name="gender" required>
@@ -37,14 +37,14 @@
             <div>
                 <label>Сфера деятельности:
                     <select name="activity-field" required>
-                        <option value="">Экономическая сфера</option>
-                        <option value="">Промышленная сфера</option>
-                        <option value="">Финансовая сфера</option>
-                        <option value="">Сфера образования и науки</option>
-                        <option value="">Сфера торговли</option>
-                        <option value="">Сфера услуг</option>
-                        <option value="">Сельское хозяйство</option>
-                        <option value="">Другое</option>
+                        <option value="economic">Экономическая сфера</option>
+                        <option value="industrial">Промышленная сфера</option>
+                        <option value="financial">Финансовая сфера</option>
+                        <option value="education-science">Сфера образования и науки</option>
+                        <option value="trading">Сфера торговли</option>
+                        <option value="services">Сфера услуг</option>
+                        <option value="agriculture">Сельское хозяйство</option>
+                        <option value="other">Другое</option>
                     </select>
                 </label>
             </div>
