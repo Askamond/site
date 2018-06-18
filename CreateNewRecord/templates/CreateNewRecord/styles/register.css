@@ -1,0 +1,32 @@
+/* line 4, ../sass/register.sass */
+.container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+}
+
+/* line 10, ../sass/register.sass */
+.container > header {
+  background-color: #0fc;
+  font-family: "Comic Sans MS", serif;
+  text-align: center;
+  height: 2em;
+  border-radius: 1ex 1ex 0 0;
+  border: solid #0fc 0.5ex;
+  border-bottom: none;
+}
+
+/* line 19, ../sass/register.sass */
+.question, .submit-container {
+  padding: 1ex;
+  border: solid #0fc 0.5ex;
+  border-top: none;
+  border-bottom: none;
+}
+
+/* line 25, ../sass/register.sass */
+.submit-container {
+  border-bottom: solid #0fc 0.5ex;
+  border-radius: 0 0 1ex 1ex;
+}
