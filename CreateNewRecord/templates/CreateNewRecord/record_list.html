@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="styles/register.css">
+</head>
+<body>
+    <header class="logo-header">
+        
+    </header>
+    <div class="container">
+        <header class="container-header">
+            Анкета участника Всероссийского Экономического Диктанта
+        </header>
+        <form action="/check_this" method="post"> {% csrf_token %}
+            <div class="question">
+                <label>Пол:
+                    <select name="gender" required>
+                        <option value="M">Мужской</option>
+                        <option value="W">Женский</option>
+                    </select>
+                </label>
+            </div>
+            <div class="question">
+                <label>Возраст: <input type="number" name="age" required></label>
+            </div>
+            <div class="question">
+                <label>Образование:
+                    <select name="education" required>
+                        <option value="basic-general">Основное общее образование (9 кл.)</option>
+                        <option value="secondary-general">Среднее (полное) общее образование (10-11 кл.)</option>
+                        <option value="secondary-professional">Среднее профессиональное образование</option>
+                        <option value="incomplete-higher">Неполное высшее (неоконченное образование)</option>
+                        <option value="higher">Высшее образование</option>
+                        <option value="scientific-degree">Наличие ученой степени</option>
+                    </select>
+                </label>
+            </div>
+            <div class="question">
+                <label>Сфера деятельности:
+                    <select name="activity-field" required>
+                        <option value="economic">Экономическая сфера</option>
+                        <option value="industrial">Промышленная сфера</option>
+                        <option value="financial">Финансовая сфера</option>
+                        <option value="education-science">Сфера образования и науки</option>
+                        <option value="trading">Сфера торговли</option>
+                        <option value="services">Сфера услуг</option>
+                        <option value="agriculture">Сельское хозяйство</option>
+                        <option value="other">Другое</option>
+                    </select>
+                </label>
+            </div>
+            <div class="question">
+                <label>Род занятий:
+                    <select name="occupation" required>
+                        <option value="schoolboy">Школьник</option>
+                        <option value="studying">Учащийся</option>
+                        <optgroup label="ВУЗ">
+                            <option value="economic-university">Экономический</option>
+                            <option value="technical-university">Технический</option>
+                            <option value="humanitarian-university">Гуманитарный</option>
+                        </optgroup>
+                        <option value="working">Работающий</option>
+                        <option value="pensioner">Пенсионер</option>
+                        <option value="other">Другое</option>
+                    </select>
+                </label>
+            </div>
+            <div class="question">
+                <label>Отношение к экономике:
+                    <select name="economy-attitude" required>
+                        <option value="interested">Интересующийся</option>
+                        <option value="studying-economic-profile">Обучающийся по экономическому профилю</option>
+                        <option value="specialist">Профессиональный специалист</option>
+                        <option value="scientist">Ученый</option>
+                        <option value="teacher">Преподаватель</option>
+                        <option value="no-attitude">Не имею отношение</option>
+                        <option value="other">Другое</option>
+                    </select>
+                </label>
+            </div>
+            <div class="submit-container">
+                <input type="submit" value="Начать тест" class="pretty-button">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
