@@ -1,14 +1,4 @@
-<<<<<<< HEAD
 *.sass
 *.map
 *.rb
 *.ts
-=======
-.pyc
-~
-__pycache__
-myvenv
-db.sqlite3
-static
-.DS_Store
->>>>>>> ae6eda92b4165a03d3f87ee7594bc748fa375251

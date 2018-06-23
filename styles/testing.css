@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
   outline: none;
@@ -21,6 +22,7 @@
   background: #0f8;
   padding-bottom: 1.5ex;
   width: 10em;
+  flex-shrink: 0;
 }
 .left-column header {
   text-align: center;
@@ -51,10 +53,9 @@
   justify-content: center;
   background: white;
   margin: 0.5ex 0.7ex;
-  text-align: center;
-  cursor: pointer;
   border-radius: 0.4ex;
   position: relative;
+  cursor: pointer;
 }
 .left-column .select-button:hover {
   background: #e6e6e6;
@@ -64,6 +65,7 @@
 }
 .left-column .select-button.answered {
   background: #FFFB75;
+  cursor: pointer;
 }
 .left-column .select-button.answered:hover {
   background: #e6e269;
@@ -89,18 +91,86 @@
   border-right-color: #FF533B;
 }
 .left-column .submit-button {
-  cursor: pointer;
   width: 100%;
   padding: 0.5ex;
   margin: 1ex 0.7ex 0 0.7ex;
   text-align: center;
   background: white;
   border-radius: 0.2ex;
+  cursor: pointer;
 }
 .left-column .submit-button:hover {
   background: #e6e6e6;
 }
 .left-column .submit-button:active {
+  background: #d9d9d9;
+}
+
+.right-column {
+  flex-grow: 1;
+  margin-left: 4ex;
+}
+.right-column .question {
+  display: none;
+  background: #0f8;
+  border-radius: 1ex;
+  padding-bottom: 1ex;
+}
+.right-column .question:before {
+  content: "Вопрос №" attr(question);
+  text-align: center;
+  font-size: 1.1em;
+  padding: 1ex 0;
+  border-bottom: solid #3E57FF 0.3ex;
+  display: block;
+}
+.right-column .question.selected {
+  display: block;
+}
+.right-column .question header {
+  padding: 1ex 3ex;
+  font-size: 1.1em;
+}
+.right-column .question label {
+  display: flex;
+  padding: 0.5ex 0;
+  margin: 1ex 1.5ex;
+  background: white;
+  cursor: pointer;
+}
+.right-column .question label:hover {
+  background: #e6e6e6;
+}
+.right-column .question label:active {
+  background: #d9d9d9;
+}
+.right-column .question label input {
+  display: block;
+}
+.right-column .buttons-panel {
+  background: #0f8;
+  border-radius: 1ex;
+  margin-top: 1ex;
+  display: flex;
+  padding: 1ex 1.5ex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.right-column .buttons-panel .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4ex;
+  margin: 0.5ex 0;
+  padding: 0 2ex;
+  background: white;
+  border-radius: 0.5ex;
+  cursor: pointer;
+}
+.right-column .buttons-panel .button:hover {
+  background: #e6e6e6;
+}
+.right-column .buttons-panel .button:active {
   background: #d9d9d9;
 }
 
