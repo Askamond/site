@@ -1,0 +1,32 @@
+$primary-color: #0f8
+$secondary-color: white
+$tretiary-color: #3E57FF
+$accent-color: #FF533B
+$highlight-color: #FFFB75
+@function primary-color($opacity: 1)
+    @return change_color($primary-color, $alpha: $opacity)
+$border-width: .5ex
+
+=button-effects($bg-color)
+    cursor: pointer
+
+    &:hover
+        background: mix($bg-color, black, 93)
+
+    &:active
+        background: mix($bg-color, black, 85)
+
+=button-center()
+    display: flex
+    align-items: center
+    justify-content: center
+
+*
+    box-sizing: border-box
+    outline: none
+
+.container
+    max-width: 1000px
+    margin-left: auto
+    margin-right: auto
+    margin-top: 2ex

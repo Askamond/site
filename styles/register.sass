@@ -1,0 +1,73 @@
+@import "main"
+
+.container
+   border: solid $primary-color $border-width
+   border-radius: 1ex
+
+   header
+      background-color: $primary-color
+      font-family: "Comic Sans MS", serif
+      text-align: center
+      padding: 0.5ex 0 0.5ex 0
+
+.question
+    padding: 2ex 1ex 2ex 1ex
+    display: flex
+    justify-content: space-between
+    transition: border-color 0.5s
+    position: relative
+
+    &:before
+        position: absolute
+        left: 0
+        top: 0
+        width: 100%
+        height: 100%
+        z-index: -1
+        //background: repeating-linear-gradient(to bottom, primary-color(0.3), white, primary-color(0.3))
+        filter: opacity(0.0001)
+        background: primary-color(0.3)
+        transition: filter 0.5s
+        content: ''
+
+    &:hover
+        //background: repeating-linear-gradient(to bottom, rgba( 0, 255, 204, 0.1 ), white, rgba( 0, 255, 204, 0.1 ))
+        border-color: primary-color(0.3)
+
+        &:before
+            filter: opacity(100%)
+
+    .answer
+        width: 50%
+        text-align: left
+        border-radius: 0.5ex
+        padding-right: 2ex
+
+        select, input
+            width: 90%
+            box-sizing: border-box
+            padding: 0 0.1ex 0 0.1ex
+            border: solid black 1px
+
+        input
+            padding-left: 0.7ex
+
+.submit-container
+    padding: 1ex 1em 1ex 1ex
+    text-align: center
+
+.submit-button
+    border: none
+    background: transparentize($primary-color, 0.5)
+    font-weight: bold
+    font-size: 1em
+    border-radius: 1ex
+    height: 5ex
+    width: 20ex
+    transition: background 0.3s
+
+    &:hover
+        background: $primary-color
+
+    &:active
+        background: darken($primary-color, 10)
