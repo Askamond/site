@@ -1,0 +1,4 @@
+*.sass
+*.map
+*.rb
+*.ts

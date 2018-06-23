@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+.container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2ex;
+}
+
+.container {
+  border: solid #0fc 0.5ex;
+  border-radius: 1ex;
+}
+.container header {
+  background-color: #0fc;
+  font-family: "Comic Sans MS", serif;
+  text-align: center;
+  padding: 0.5ex 0 0.5ex 0;
+}
+
+.question {
+  padding: 2ex 1ex 2ex 1ex;
+  display: flex;
+  justify-content: space-between;
+  transition: border-color 0.5s;
+  position: relative;
+}
+.question:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: rgba(0, 255, 204, 0.3);
+  filter: opacity(0);
+  transition: filter 0.5s;
+  content: "";
+}
+.question:hover {
+  border-color: rgba(0, 255, 204, 0.3);
+}
+.question:hover:before {
+  filter: opacity(100%);
+}
+.question .answer {
+  width: 50%;
+  text-align: left;
+  border-radius: 0.5ex;
+  padding-right: 2ex;
+}
+.question .answer select, .question .answer input {
+  width: 90%;
+  box-sizing: border-box;
+  padding: 0 0.1ex 0 0.1ex;
+  border: solid black 1px;
+}
+.question .answer input {
+  padding-left: 0.7ex;
+}
+
+.submit-container {
+  padding: 1ex 1em 1ex 1ex;
+  text-align: center;
+}
+
+.submit-button {
+  border: none;
+  background: rgba(0, 255, 204, 0.5);
+  font-weight: bold;
+  font-size: 1em;
+  border-radius: 1ex;
+  height: 5ex;
+  width: 20ex;
+  transition: background 0.3s;
+}
+.submit-button:hover {
+  background: #0fc;
+}
+.submit-button:active {
+  background: #00cca3;
+}
+
+/*# sourceMappingURL=register.css.map */

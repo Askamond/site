@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+.container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2ex;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.left-column {
+  border-radius: 1ex;
+  background: #0f8;
+  padding-bottom: 1.5ex;
+  width: 10em;
+}
+.left-column header {
+  text-align: center;
+  padding: 1ex 0;
+  border-bottom: solid #3E57FF 0.3ex;
+  margin-bottom: 0.5ex;
+  font-family: serif;
+  font-size: 1.1em;
+}
+.left-column .buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 1ex;
+}
+.left-column .invisible {
+  content: "";
+  display: block;
+  width: 5ex;
+  margin: 0 0.7ex;
+  height: 0;
+}
+.left-column .select-button {
+  width: 5ex;
+  height: 3.5ex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  margin: 0.5ex 0.7ex;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.4ex;
+  position: relative;
+}
+.left-column .select-button:hover {
+  background: #e6e6e6;
+}
+.left-column .select-button:active {
+  background: #d9d9d9;
+}
+.left-column .select-button.answered {
+  background: #FFFB75;
+}
+.left-column .select-button.answered:hover {
+  background: #e6e269;
+}
+.left-column .select-button.answered:active {
+  background: #d9d563;
+}
+.left-column .select-button.selected {
+  border-top: solid transparent 0.4ex;
+  border-bottom: solid #3E57FF 0.4ex;
+}
+.left-column .select-button.marked:before {
+  box-sizing: border-box;
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1ex;
+  height: 1ex;
+  border: solid transparent 0.7ex;
+  border-top-right-radius: 0.4ex;
+  border-top-color: #FF533B;
+  border-right-color: #FF533B;
+}
+.left-column .submit-button {
+  cursor: pointer;
+  width: 100%;
+  padding: 0.5ex;
+  margin: 1ex 0.7ex 0 0.7ex;
+  text-align: center;
+  background: white;
+  border-radius: 0.2ex;
+}
+.left-column .submit-button:hover {
+  background: #e6e6e6;
+}
+.left-column .submit-button:active {
+  background: #d9d9d9;
+}
+
+/*# sourceMappingURL=testing.css.map */
