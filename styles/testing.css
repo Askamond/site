@@ -54,11 +54,12 @@
   background: white;
   margin: 0.5ex 0.7ex;
   border-radius: 0.4ex;
+  border-width: 0;
   position: relative;
   cursor: pointer;
 }
 .left-column .select-button:hover {
-  background: #e6e6e6;
+  background: #ededed;
 }
 .left-column .select-button:active {
   background: #d9d9d9;
@@ -68,7 +69,7 @@
   cursor: pointer;
 }
 .left-column .select-button.answered:hover {
-  background: #e6e269;
+  background: #ede96d;
 }
 .left-column .select-button.answered:active {
   background: #d9d563;
@@ -85,22 +86,23 @@
   top: 0;
   width: 1ex;
   height: 1ex;
-  border: solid transparent 0.7ex;
+  border: solid transparent 0.8ex;
   border-top-right-radius: 0.4ex;
   border-top-color: #FF533B;
   border-right-color: #FF533B;
 }
 .left-column .submit-button {
   width: 100%;
-  padding: 0.5ex;
+  padding: 0.7ex;
   margin: 1ex 0.7ex 0 0.7ex;
   text-align: center;
   background: white;
   border-radius: 0.2ex;
+  border-width: 0;
   cursor: pointer;
 }
 .left-column .submit-button:hover {
-  background: #e6e6e6;
+  background: #ededed;
 }
 .left-column .submit-button:active {
   background: #d9d9d9;
@@ -135,14 +137,16 @@
   display: flex;
   padding: 0.5ex 0;
   margin: 1ex 1.5ex;
-  background: white;
+  border-bottom: solid #3E57FF 0.3ex;
+  border-radius: 0.3ex;
+  background: linear-gradient(to top, #00eb7d, #0f8);
   cursor: pointer;
 }
 .right-column .question label:hover {
-  background: #e6e6e6;
+  background: #00ed7e;
 }
 .right-column .question label:active {
-  background: #d9d9d9;
+  background: #00d974;
 }
 .right-column .question label input {
   display: block;
@@ -160,15 +164,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-width: 0;
   height: 4ex;
-  margin: 0.5ex 0;
-  padding: 0 2ex;
+  margin: 0.5ex 1ex;
+  min-width: 11em;
+  flex-grow: 1;
+  flex-shrink: 0;
   background: white;
   border-radius: 0.5ex;
   cursor: pointer;
 }
 .right-column .buttons-panel .button:hover {
-  background: #e6e6e6;
+  background: #ededed;
 }
 .right-column .buttons-panel .button:active {
   background: #d9d9d9;
