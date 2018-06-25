@@ -19,6 +19,10 @@ function isNull(variable) {
     }
     return false;
 }
+function addWaveEffects(element) {
+    element.classList.add("waves-effect");
+    element.classList.add("waves-light");
+}
 function checkAnswered() {
     var currentQuestion = getCurrentQuestionFrame();
     var inputs = currentQuestion.querySelectorAll("input");
@@ -47,6 +51,7 @@ function markQuestion() {
 }
 function checkMark() {
     var currentQuestionButton = getCurrentQuestionButton();
+    var markButton = document.getElementById("mark-question");
     if (currentQuestionButton.classList.contains("marked")) {
         markButton.innerText = "Снять флажок";
     }
@@ -84,42 +89,49 @@ function endTest() {
         form.submit();
     }
 }
-var markButton = document.getElementById("mark-question");
-markButton.onclick = markQuestion;
-var prevButton = document.getElementById("prev-question");
-var nextButton = document.getElementById("next-question");
-prevButton.onclick = previousQuestion;
-nextButton.onclick = nextQuestion;
-var buttons = document.querySelectorAll(".left-column nav .select-button");
-var _loop_1 = function (i) {
-    var questionNumber = +buttons[i].getAttribute("question");
-    if (isNull(questionNumber))
-        return "continue";
-    buttons[i].onclick = function () {
-        goToQuestion(questionNumber);
+function onLoad() {
+    var markButton = document.getElementById("mark-question");
+    markButton.onclick = markQuestion;
+    var prevButton = document.getElementById("prev-question");
+    var nextButton = document.getElementById("next-question");
+    prevButton.onclick = previousQuestion;
+    nextButton.onclick = nextQuestion;
+    addWaveEffects(nextButton);
+    addWaveEffects(prevButton);
+    var buttons = document.querySelectorAll(".left-column nav .select-button");
+    var _loop_1 = function (i) {
+        var questionNumber = +buttons[i].getAttribute("question");
+        if (isNull(questionNumber))
+            return "continue";
+        buttons[i].onclick = function () {
+            goToQuestion(questionNumber);
+        };
+        buttons[i].classList.add("waves-effect");
+        buttons[i].classList.add("waves-teal");
     };
-};
-for (var i = 0; i < buttons.length; i++) {
-    _loop_1(i);
+    for (var i = 0; i < buttons.length; i++) {
+        _loop_1(i);
+    }
+    var endTestButton = document.querySelector(".left-column .submit-button");
+    endTestButton.onclick = endTest;
+    var timer = document.querySelector(".left-column .timer .time-left");
+    var time = 60 * 60;
+    setTimeout(function timerTick() {
+        time--;
+        var minutes = Math.floor(time / 60);
+        var seconds = (time - +minutes * 60) % 60;
+        var formatter = new Intl.NumberFormat("ru", {
+            minimumIntegerDigits: 2
+        });
+        timer.innerText = "" + minutes + ":" + formatter.format(seconds);
+        if (time > 0) {
+            setTimeout(timerTick, 1000);
+        }
+        else {
+            alert("Время вышло!");
+            var form = document.getElementsByTagName("form")[0];
+            form.submit();
+        }
+    }, 1000);
 }
-var endTestButton = document.querySelector(".left-column .submit-button");
-endTestButton.onclick = endTest;
-var timer = document.querySelector(".left-column .timer .time-left");
-var time = 60 * 60;
-setTimeout(function timerTick() {
-    time--;
-    var minutes = Math.floor(time / 60);
-    var seconds = (time - +minutes * 60) % 60;
-    var formatter = new Intl.NumberFormat("ru", {
-        minimumIntegerDigits: 2
-    });
-    timer.innerText = "" + minutes + ":" + formatter.format(seconds);
-    if (time > 0) {
-        setTimeout(timerTick, 1000);
-    }
-    else {
-        alert("Время вышло!");
-        var form = document.getElementsByTagName("form")[0];
-        form.submit();
-    }
-}, 1000);
+document.addEventListener("DOMContentLoaded", onLoad);

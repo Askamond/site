@@ -10,13 +10,15 @@
     flex-shrink: 0
 
     .timer
-        background: $primary-color
+        +apply-colors($primary-light, $primary-text)
         border-radius: 1ex
         margin-top: 1ex
 
         header
+            +apply-colors($primary-color, $primary-text)
+            +apply-header-style()
+            border-radius: 1ex 1ex 0 0
             padding: 0.5ex 0
-            border-bottom: solid $tretiary-color 0.3ex
             text-align: center
             font-size: 1.1em
 
@@ -24,18 +26,21 @@
             text-align: center
             font-size: 1.4em
             padding: 1ex 0
-            font-family: "Roboto", monospace
+            font-family: 'Roboto-Mono', monospace
             font-weight: 300
 
     nav
+        +apply-colors($primary-light, $primary-text)
         border-radius: 1ex
-        background: $primary-color
         padding-bottom: 1.5ex
 
         header
+            +apply-colors($primary-color, $primary-text)
+            +apply-header-style()
+            border-radius: 1ex 1ex 0 0
             text-align: center
             padding: 1ex 0
-            border-bottom: solid $tretiary-color 0.3ex
+            //border-bottom: solid $tretiary-color 0.3ex
             margin-bottom: 0.5ex
             font-family: serif
             font-size: 1.1em
@@ -54,14 +59,17 @@
             height: 0
 
         .select-button
+            +apply-colors($secondary-color, $secondary-text)
+            +apply-button-style($secondary-color, $secondary-light)
             width: 5ex
             height: 3.5ex
             +button-center()
-            background: $secondary-color
             margin: 0.5ex 0.7ex
             border-radius: 0.4ex
             border-width: 0
+            padding-top: 0
             position: relative
+            transition: padding-top 0.4s, border-width 0.4s
 
             +button-effects($secondary-color)
 
@@ -138,7 +146,7 @@
                 display: block
 
     .buttons-panel
-        background: $primary-color
+        +apply-colors($primary-color, $primary-text)
         border-radius: 1ex
         margin-top: 1ex
         display: flex
@@ -147,14 +155,24 @@
         flex-wrap: wrap
 
         .button
-            +button-center()
-            border-width: 0
-            height: 4ex
+            @extend .btn
+            +apply-colors($secondary-dark, $secondary-text)
+            +apply-button-style($secondary-color)
             margin: 0.5ex 1ex
-            min-width: 11em
             flex-grow: 1
-            flex-shrink: 0
-            background: $secondary-color
-            border-radius: 0.5ex
+            box-sizing: content-box
+            width: 13.5em
 
-            +button-effects($secondary-color)
+
+        // .button
+        //     +button-center()
+        //     border-width: 0
+        //     height: 4ex
+        //     margin: 0.5ex 1ex
+        //     min-width: 11em
+        //     flex-grow: 1
+        //     flex-shrink: 0
+        //     background: $secondary-color
+        //     border-radius: 0.5ex
+        //
+        //     +button-effects($secondary-color)

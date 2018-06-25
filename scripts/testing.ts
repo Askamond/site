@@ -24,6 +24,11 @@ function isNull(variable : any) : Boolean {
     return false;
 }
 
+function addWaveEffects(element : Element) {
+    element.classList.add("waves-effect");
+    element.classList.add("waves-light");
+}
+
 function checkAnswered() {
     let currentQuestion = getCurrentQuestionFrame();
     let inputs = currentQuestion.querySelectorAll("input");
@@ -57,6 +62,7 @@ function markQuestion() {
 
 function checkMark() {
     let currentQuestionButton = getCurrentQuestionButton();
+    let markButton = document.getElementById("mark-question");
 
     if (currentQuestionButton.classList.contains("marked")) {
         markButton.innerText = "Снять флажок";
@@ -101,45 +107,53 @@ function endTest() {
     }
 }
 
-let markButton = document.getElementById("mark-question");
-markButton.onclick = markQuestion;
+function onLoad() {
+    let markButton = document.getElementById("mark-question");
+    markButton.onclick = markQuestion;
 
-let prevButton = document.getElementById("prev-question");
-let nextButton = document.getElementById("next-question");
-prevButton.onclick = previousQuestion;
-nextButton.onclick = nextQuestion;
+    let prevButton = document.getElementById("prev-question");
+    let nextButton = document.getElementById("next-question");
+    prevButton.onclick = previousQuestion;
+    nextButton.onclick = nextQuestion;
+    addWaveEffects(nextButton);
+    addWaveEffects(prevButton);
 
-let buttons : any = document.querySelectorAll(".left-column nav .select-button");
+    let buttons = document.querySelectorAll(".left-column nav .select-button");
 
-for (let i = 0; i < buttons.length; i++) {
-    let questionNumber = +buttons[i].getAttribute("question");
-    if (isNull(questionNumber))
-        continue;
+    for (let i = 0; i < buttons.length; i++) {
+        let questionNumber = +buttons[i].getAttribute("question");
+        if (isNull(questionNumber))
+            continue;
 
-    buttons[i].onclick = function() {
-        goToQuestion(questionNumber);
+        (<HTMLElement>buttons[i]).onclick = function() {
+            goToQuestion(questionNumber);
+        }
+        buttons[i].classList.add("waves-effect");
+        buttons[i].classList.add("waves-teal");
     }
+
+    let endTestButton : any = document.querySelector(".left-column .submit-button");
+    endTestButton.onclick = endTest;
+
+    let timer : HTMLElement = document.querySelector(".left-column .timer .time-left");
+    let time = 60 * 60;
+    setTimeout(function timerTick() {
+        time--;
+        let minutes = Math.floor(time / 60);
+        let seconds = (time - +minutes * 60) % 60;
+        let formatter = new Intl.NumberFormat("ru", {
+            minimumIntegerDigits: 2
+        })
+        timer.innerText = "" + minutes + ":" + formatter.format(seconds);
+        if (time > 0) {
+            setTimeout(timerTick, 1000);
+        }
+        else {
+            alert("Время вышло!");
+            let form = document.getElementsByTagName("form")[0];
+            form.submit();
+        }
+    }, 1000)
 }
 
-let endTestButton : any = document.querySelector(".left-column .submit-button");
-endTestButton.onclick = endTest;
-
-let timer : HTMLElement = document.querySelector(".left-column .timer .time-left");
-let time = 60 * 60;
-setTimeout(function timerTick() {
-    time--;
-    let minutes = Math.floor(time / 60);
-    let seconds = (time - +minutes * 60) % 60;
-    let formatter = new Intl.NumberFormat("ru", {
-        minimumIntegerDigits: 2
-    })
-    timer.innerText = "" + minutes + ":" + formatter.format(seconds);
-    if (time > 0) {
-        setTimeout(timerTick, 1000);
-    }
-    else {
-        alert("Время вышло!");
-        let form = document.getElementsByTagName("form")[0];
-        form.submit();
-    }
-}, 1000)
+document.addEventListener("DOMContentLoaded", onLoad);
