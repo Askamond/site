@@ -1,3 +1,5 @@
 *.map
 *.rb
 ignore
+*.sass
+*.scss

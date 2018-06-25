@@ -60,7 +60,7 @@
 
         .select-button
             +apply-colors($secondary-color, $secondary-text)
-            +apply-button-style($secondary-color, $secondary-light)
+            +apply-button-style($secondary-color)
             width: 5ex
             height: 3.5ex
             +button-center()
@@ -155,9 +155,19 @@
         flex-wrap: wrap
 
         .button
-            @extend .btn
             +apply-colors($secondary-dark, $secondary-text)
             +apply-button-style($secondary-color)
+            border: none
+            text-align: center
+            letter-spacing: 0.5px
+            font-size: 14px
+            border-radius: 2px
+            height: 36px
+            line-height: 36px
+            padding: 0 16px
+            text-transform: uppercase
+            vertical-align: middle
+            outline: 0
             margin: 0.5ex 1ex
             flex-grow: 1
             box-sizing: content-box

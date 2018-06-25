@@ -103,11 +103,11 @@ a {
 }
 
 /* 2dp elevation modified*/
-.z-depth-1, .btn-floating, .btn, .right-column .buttons-panel .button, .btn-small, .btn-large {
+.z-depth-1, .btn-floating, .btn, .btn-small, .btn-large {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
-.z-depth-1-half, .btn-floating:hover, .btn:hover, .right-column .buttons-panel .button:hover, .btn-small:hover, .btn-large:hover {
+.z-depth-1-half, .btn-floating:hover, .btn:hover, .btn-small:hover, .btn-large:hover {
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
@@ -722,7 +722,7 @@ table.responsive-table td {
   padding: 0 !important;
 }
 
-.btn, .right-column .buttons-panel .button, .btn-small, .btn-large,
+.btn, .btn-small, .btn-large,
 .btn-flat {
   border: none;
   border-radius: 2px;
@@ -735,19 +735,17 @@ table.responsive-table td {
   -webkit-tap-highlight-color: transparent;
 }
 
-.btn.disabled, .right-column .buttons-panel .disabled.button,
+.btn.disabled,
 .btn-floating.disabled,
 .btn-large.disabled,
 .btn-small.disabled,
 .btn-flat.disabled,
 .btn:disabled,
-.right-column .buttons-panel .button:disabled,
 .btn-floating:disabled,
 .btn-large:disabled,
 .btn-small:disabled,
 .btn-flat:disabled,
 .btn[disabled],
-.right-column .buttons-panel [disabled].button,
 .btn-floating[disabled],
 .btn-large[disabled],
 .btn-small[disabled],
@@ -758,19 +756,17 @@ table.responsive-table td {
   color: #9F9F9F !important;
   cursor: default;
 }
-.btn.disabled:hover, .right-column .buttons-panel .disabled.button:hover,
+.btn.disabled:hover,
 .btn-floating.disabled:hover,
 .btn-large.disabled:hover,
 .btn-small.disabled:hover,
 .btn-flat.disabled:hover,
 .btn:disabled:hover,
-.right-column .buttons-panel .button:disabled:hover,
 .btn-floating:disabled:hover,
 .btn-large:disabled:hover,
 .btn-small:disabled:hover,
 .btn-flat:disabled:hover,
 .btn[disabled]:hover,
-.right-column .buttons-panel [disabled].button:hover,
 .btn-floating[disabled]:hover,
 .btn-large[disabled]:hover,
 .btn-small[disabled]:hover,
@@ -779,7 +775,7 @@ table.responsive-table td {
   color: #9F9F9F !important;
 }
 
-.btn, .right-column .buttons-panel .button,
+.btn,
 .btn-floating,
 .btn-large,
 .btn-small,
@@ -787,7 +783,7 @@ table.responsive-table td {
   font-size: 14px;
   outline: 0;
 }
-.btn i, .right-column .buttons-panel .button i,
+.btn i,
 .btn-floating i,
 .btn-large i,
 .btn-small i,
@@ -796,12 +792,12 @@ table.responsive-table td {
   line-height: inherit;
 }
 
-.btn:focus, .right-column .buttons-panel .button:focus, .btn-small:focus, .btn-large:focus,
+.btn:focus, .btn-small:focus, .btn-large:focus,
 .btn-floating:focus {
   background-color: #1d7d74;
 }
 
-.btn, .right-column .buttons-panel .button, .btn-small, .btn-large {
+.btn, .btn-small, .btn-large {
   text-decoration: none;
   color: #fff;
   background-color: #26a69a;
@@ -810,7 +806,7 @@ table.responsive-table td {
   transition: background-color 0.2s ease-out;
   cursor: pointer;
 }
-.btn:hover, .right-column .buttons-panel .button:hover, .btn-small:hover, .btn-large:hover {
+.btn:hover, .btn-small:hover, .btn-large:hover {
   background-color: #2bbbad;
 }
 
@@ -1237,9 +1233,6 @@ button.btn-floating {
   background: #2196F3;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
-.left-column nav .select-button:focus {
-  background: #64B5F6;
-}
 .left-column nav .select-button:hover {
   background: #1f8ce2;
 }
@@ -1350,6 +1343,17 @@ button.btn-floating {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   transition: background-color 0.2s ease-out;
   cursor: pointer;
+  border: none;
+  text-align: center;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+  border-radius: 2px;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 16px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  outline: 0;
   margin: 0.5ex 1ex;
   flex-grow: 1;
   box-sizing: content-box;
@@ -1358,9 +1362,6 @@ button.btn-floating {
 .right-column .buttons-panel .button:hover {
   background: #2196F3;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
-}
-.right-column .buttons-panel .button:focus {
-  background: #2196F3;
 }
 
 /*# sourceMappingURL=testing.css.map */
