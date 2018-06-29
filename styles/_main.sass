@@ -1,8 +1,8 @@
 @import "fonts/Roboto-Mono"
 @import "selected-materialize"
-$primary-color: map-get($light-blue, "lighten-1")
-$primary-light: map-get($light-blue, "lighten-3")
-$primary-dark: map-get($light-blue, "darken-1")
+$primary-color: map-get($light-blue, "lighten-2")
+$primary-light: map-get($light-blue, "lighten-4")
+$primary-dark: map-get($light-blue, "base")
 $secondary-color: map-get($blue, "base")
 $secondary-light: map-get($blue, "lighten-2")
 $secondary-dark: map-get($blue, "darken-2")
@@ -22,6 +22,9 @@ $border-width: .5ex
 
 =apply-header-style()
     box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 3px 0 -2px rgba(0, 0, 0, 0.12), 0 1px 0 0 rgba(0, 0, 0, 0.2)
+
+=apply-fonts()
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif
 
 =apply-button-style($hover-color)
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2)

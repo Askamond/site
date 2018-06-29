@@ -108,6 +108,11 @@ function endTest() {
 }
 
 function onLoad() {
+    let firstQuestion = document.querySelector(".right-column .question[question='1']");
+    let firstQuestionButton = document.querySelector(".left-column .select-button[question='1']");
+    firstQuestion.classList.add("selected")
+    firstQuestionButton.classList.add("selected")
+
     let markButton = document.getElementById("mark-question");
     markButton.onclick = markQuestion;
 
@@ -128,24 +133,24 @@ function onLoad() {
         (<HTMLElement>buttons[i]).onclick = function() {
             goToQuestion(questionNumber);
         }
-        buttons[i].classList.add("waves-effect");
-        buttons[i].classList.add("waves-teal");
+        addWaveEffects(buttons[i])
     }
 
     let endTestButton : any = document.querySelector(".left-column .submit-button");
     endTestButton.onclick = endTest;
+    addWaveEffects(endTestButton)
 
     let timer : HTMLElement = document.querySelector(".left-column .timer .time-left");
     let time = 60 * 60;
     setTimeout(function timerTick() {
-        time--;
+        --time;
         let minutes = Math.floor(time / 60);
         let seconds = (time - +minutes * 60) % 60;
         let formatter = new Intl.NumberFormat("ru", {
             minimumIntegerDigits: 2
         })
         timer.innerText = "" + minutes + ":" + formatter.format(seconds);
-        if (time > 0) {
+        if (time >= 0) {
             setTimeout(timerTick, 1000);
         }
         else {

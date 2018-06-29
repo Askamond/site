@@ -1,33 +1,47 @@
 @import "main"
 
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500&subset=cyrillic-ext')
+
 .container
     display: flex
     justify-content: space-between
     align-items: flex-start
 
+    @media screen and (max-width: 479px)
+        flex-direction: column-reverse
+        justify-content: flex-start
+
 .left-column
-    width: 10em
+    width: 13em
     flex-shrink: 0
+
+    @media screen and (max-width: 800px)
+        width: 10em
+
+    @media screen and (max-width: 479px)
+        width: auto
 
     .timer
         +apply-colors($primary-light, $primary-text)
         border-radius: 1ex
-        margin-top: 1ex
+        margin-bottom: 1ex
 
         header
             +apply-colors($primary-color, $primary-text)
             +apply-header-style()
+            +apply-fonts()
+            font-weight: 500
             border-radius: 1ex 1ex 0 0
-            padding: 0.5ex 0
+            padding: 1ex 0
             text-align: center
-            font-size: 1.1em
 
         .time-left
             text-align: center
             font-size: 1.4em
             padding: 1ex 0
             font-family: 'Roboto-Mono', monospace
-            font-weight: 300
+            font-weight: 400
+            user-select: none
 
     nav
         +apply-colors($primary-light, $primary-text)
@@ -37,13 +51,12 @@
         header
             +apply-colors($primary-color, $primary-text)
             +apply-header-style()
+            +apply-fonts()
+            font-weight: 500
             border-radius: 1ex 1ex 0 0
             text-align: center
             padding: 1ex 0
-            //border-bottom: solid $tretiary-color 0.3ex
             margin-bottom: 0.5ex
-            font-family: serif
-            font-size: 1.1em
 
         .buttons
             display: flex
@@ -54,29 +67,27 @@
         .invisible
             content: ''
             display: block
+            border: none
+            padding: 0
             width: 5ex
-            margin: 0 0.7ex
             height: 0
+            margin: 0 0.7ex
 
         .select-button
             +apply-colors($secondary-color, $secondary-text)
-            +apply-button-style($secondary-color)
+            +apply-button-style($secondary-light)
+            +button-center()
             width: 5ex
             height: 3.5ex
-            +button-center()
             margin: 0.5ex 0.7ex
             border-radius: 0.4ex
             border-width: 0
             padding-top: 0
             position: relative
-            transition: padding-top 0.4s, border-width 0.4s
-
-            +button-effects($secondary-color)
+            transition: all 0.3s
 
             &.answered
-                background: $highlight-color
-
-                +button-effects($highlight-color)
+                +apply-colors($highlight-color, $highlight-text)
 
             &.selected
                 padding-top: 0.4ex
@@ -90,13 +101,15 @@
                 top: 0
                 width: 1ex
                 height: 1ex
-                border: solid transparent 0.8ex
+                border: solid transparent 6px
                 border-top-right-radius: 0.4ex
                 border-top-color: $accent-color
                 border-right-color: $accent-color
 
 
         .submit-button
+            +apply-colors($secondary-color, $secondary-text)
+            +apply-button-style($secondary-light)
             width: 100%
             padding: 0.7ex
             margin: 1ex 0.7ex 0 0.7ex
@@ -105,24 +118,32 @@
             border-radius: 0.2ex
             border-width: 0
 
-            +button-effects($secondary-color)
-
 .right-column
     flex-grow: 1
     margin-left: 4ex
+    margin-bottom: 1ex
+
+    @media screen and (max-width: 800px)
+        margin-left: 2ex
+
+    @media screen and (max-width: 479px)
+        margin-left: 0
 
     .question
         display: none
-        background: $primary-color
+        background: $primary-light
         border-radius: 1ex
         padding-bottom: 1ex
 
         &:before
+            +apply-colors($primary-color, $primary-text)
+            +apply-header-style()
+            +apply-fonts()
+            font-weight: 500
+            border-radius: 1ex 1ex 0 0
             content: 'Вопрос №'attr(question)
             text-align: center
-            font-size: 1.1em
             padding: 1ex 0
-            border-bottom: solid $tretiary-color 0.3ex
             display: block
 
         &.selected
@@ -132,21 +153,51 @@
             padding: 1ex 3ex
             font-size: 1.1em
 
+        footer
+            display: flex
+            align-items: center
+            padding: 1ex 3ex
+            +apply-fonts()
+
+            .tip-icon
+                margin-right: 1ex
+
         label
             display: flex
+            cursor: pointer
+            align-content: center
             padding: 0.5ex 0
             margin: 1ex 1.5ex
-            border-bottom: solid $tretiary-color 0.3ex
+            // border-bottom: solid $tretiary-color 0.3ex
             border-radius: 0.3ex
-            background: linear-gradient(to top, mix($primary-color, black, 92), $primary-color)
+            background: lighten($primary-light, 9)
 
-            +button-effects($primary-color)
+            &:hover
+                background: lighten($primary-light, 13)
 
             input
                 display: block
 
+                &[type="radio"]:checked + span:after
+                    background: $secondary-dark
+                    border-color: $secondary-dark
+
+                &[type="checkbox"]
+                    &:checked + span:before
+                        border-bottom-color: $secondary-dark
+                        border-right-color: $secondary-dark
+                        border-left: none
+                        border-top: none
+                        border-width: 3px
+                    & + span:before
+                        top: 0
+                        bottom: 0
+                        margin-top: auto
+                        margin-bottom: auto
+                        margin-left: 1ex
+
     .buttons-panel
-        +apply-colors($primary-color, $primary-text)
+        +apply-colors($primary-light, $primary-text)
         border-radius: 1ex
         margin-top: 1ex
         display: flex

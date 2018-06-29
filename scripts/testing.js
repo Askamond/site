@@ -90,6 +90,10 @@ function endTest() {
     }
 }
 function onLoad() {
+    var firstQuestion = document.querySelector(".right-column .question[question='1']");
+    var firstQuestionButton = document.querySelector(".left-column .select-button[question='1']");
+    firstQuestion.classList.add("selected");
+    firstQuestionButton.classList.add("selected");
     var markButton = document.getElementById("mark-question");
     markButton.onclick = markQuestion;
     var prevButton = document.getElementById("prev-question");
@@ -106,25 +110,25 @@ function onLoad() {
         buttons[i].onclick = function () {
             goToQuestion(questionNumber);
         };
-        buttons[i].classList.add("waves-effect");
-        buttons[i].classList.add("waves-teal");
+        addWaveEffects(buttons[i]);
     };
     for (var i = 0; i < buttons.length; i++) {
         _loop_1(i);
     }
     var endTestButton = document.querySelector(".left-column .submit-button");
     endTestButton.onclick = endTest;
+    addWaveEffects(endTestButton);
     var timer = document.querySelector(".left-column .timer .time-left");
     var time = 60 * 60;
     setTimeout(function timerTick() {
-        time--;
+        --time;
         var minutes = Math.floor(time / 60);
         var seconds = (time - +minutes * 60) % 60;
         var formatter = new Intl.NumberFormat("ru", {
             minimumIntegerDigits: 2
         });
         timer.innerText = "" + minutes + ":" + formatter.format(seconds);
-        if (time > 0) {
+        if (time >= 0) {
             setTimeout(timerTick, 1000);
         }
         else {
