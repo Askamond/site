@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title>Register</title>
     <link rel="stylesheet" href="styles/register.css">
+    <script src="scripts/materialize.min.js"></script>
 </head>
 <body>
     <header class="logo-header">
-        
+
     </header>
     <div class="container">
         <header class="container-header">
@@ -15,80 +16,66 @@
         </header>
         <form action="/check_this" method="post">
             <div class="question">
-                <div><label for="gender">Пол:</label></div>
+                <div>Пол:</div>
                 <div class="answer">
-                    <select name="gender" id="gender" required>
-                        <option></option>
-                        <option value="M">Мужской</option>
-                        <option value="W">Женский</option>
-                    </select>
+                    <label><input type="radio" name="gender" required value="M"><span>Мужской</span></label>
+                    <label><input type="radio" name="gender" required value="W"><span>Женский</span></label>
                 </div>
             </div>
             <div class="question">
-                <div><label for="age">Возраст:</label></div>
-                <div class="answer"><input type="number" name="age" id="age" required></div>
-            </div>
-            <div class="question">
-                <div><label for="education">Образование:</label></div>
-                <div class="answer">
-                    <select name="education" id="education" required>
-                        <option></option>
-                        <option value="basic-general">Основное общее образование (9 кл.)</option>
-                        <option value="secondary-general">Среднее (полное) общее образование (10-11 кл.)</option>
-                        <option value="secondary-professional">Среднее профессиональное образование</option>
-                        <option value="incomplete-higher">Неполное высшее (неоконченное образование)</option>
-                        <option value="higher">Высшее образование</option>
-                        <option value="scientific-degree">Наличие ученой степени</option>
-                    </select>
+                <div>Возраст:</div>
+                <div class="input-field">
+                    <label for="age">Возраст</label>
+                    <input type="number" name="age" id="age" required>
                 </div>
             </div>
             <div class="question">
-                <div><label for="activity-field">Сфера деятельности:</label></div>
+                <div>Образование:</div>
                 <div class="answer">
-                    <select name="activity-field" id="activity-field" required>
-                        <option></option>
-                        <option value="economic">Экономическая сфера</option>
-                        <option value="industrial">Промышленная сфера</option>
-                        <option value="financial">Финансовая сфера</option>
-                        <option value="education-science">Сфера образования и науки</option>
-                        <option value="trading">Сфера торговли</option>
-                        <option value="services">Сфера услуг</option>
-                        <option value="agriculture">Сельское хозяйство</option>
-                        <option value="other">Другое</option>
-                    </select>
+                    <label><input type="radio" name="education" required value="basic-general"><span>Основное общее образование (9 кл.)</span></label>
+                    <label><input type="radio" name="education" required value="secondary-general"><span>Среднее (полное) общее образование (10-11 кл.)</span></label>
+                    <label><input type="radio" name="education" required value="secondary-professional"><span>Среднее профессиональное образование</span></label>
+                    <label><input type="radio" name="education" required value="incomplete-higher"><span>Неполное высшее (неоконченное образование)</span></label>
+                    <label><input type="radio" name="education" required value="higher"><span>Высшее образование</span></label>
+                    <label><input type="radio" name="education" required value="scientific-degree"><span>Наличие ученой степени</span></label>
                 </div>
             </div>
             <div class="question">
-                <div><label for="occupation">Род занятий:</label></div>
+                <div>Сфера деятельности:</div>
                 <div class="answer">
-                    <select name="occupation" id="occupation" required>
-                        <option></option>
-                        <option value="schoolboy">Школьник</option>
-                        <option value="studying">Учащийся</option>
-                        <optgroup label="ВУЗ">
-                            <option value="economic-university">Экономический</option>
-                            <option value="technical-university">Технический</option>
-                            <option value="humanitarian-university">Гуманитарный</option>
-                        </optgroup>
-                        <option value="working">Работающий</option>
-                        <option value="pensioner">Пенсионер</option>
-                        <option value="other">Другое</option>
-                    </select>
+                    <label><input type="radio" name="activity-field" required value="economic"><span>Экономическая сфера</span></label>
+                    <label><input type="radio" name="activity-field" required value="industrial"><span>Промышленная сфера</span></label>
+                    <label><input type="radio" name="activity-field" required value="financial"><span>Финансовая сфера</span></label>
+                    <label><input type="radio" name="activity-field" required value="education-science"><span>Сфера образования и науки</span></label>
+                    <label><input type="radio" name="activity-field" required value="trading"><span>Сфера торговли</span></label>
+                    <label><input type="radio" name="activity-field" required value="services"><span>Сфера услуг</span></label>
+                    <label><input type="radio" name="activity-field" required value="agriculture"><span>Сельское хозяйство</span></label>
+                    <label><input type="radio" name="activity-field" required value="other"><span>Другое</span></label>
                 </div>
             </div>
             <div class="question">
-                <div><label for="economy-attitude">Отношение к экономике:</label></div>
+                <div>Род занятий:</div>
                 <div class="answer">
-                    <select name="economy-attitude" id="economy-attitude" required>
-                        <option></option>
-                        <option value="interested">Интересующийся</option>
-                        <option value="studying-economic-profile">Обучающийся по экономическому профилю</option>
-                        <option value="specialist">Профессиональный специалист</option>
-                        <option value="scientist">Ученый</option>
-                        <option value="teacher">Преподаватель</option>
-                        <option value="no-attitude">Не имею отношение</option>
-                        <option value="other">Другое</option>
-                    </select>
+                    <label><input type="radio" name="occupation" required value="schoolboy"><span>Школьник</span></label>
+                    <label><input type="radio" name="occupation" required value="studying"><span>Учащийся</span></label>
+                    <label><input type="radio" name="occupation" required value="economic-university"><span>Экономический ВУЗ</span></label>
+                    <label><input type="radio" name="occupation" required value="technical-university"><span>Технический ВУЗ</span></label>
+                    <label><input type="radio" name="occupation" required value="humanitarian-university"><span>Гуманитарный ВУЗ</span></label>
+                    <label><input type="radio" name="occupation" required value="working"><span>Работающий</span></label>
+                    <label><input type="radio" name="occupation" required value="pensioner"><span>Пенсионер</span></label>
+                    <label><input type="radio" name="occupation" required value="other"><span>Другое</span></label>
+                </div>
+            </div>
+            <div class="question">
+                <div>Отношение к экономике:</div>
+                <div class="answer">
+                    <label><input type="radio" name="economy-attitude" required value="interested"><span>Интересующийся</span></label>
+                    <label><input type="radio" name="economy-attitude" required value="studying-economic-profile"><span>Обучающийся по экономическому профилю</span></label>
+                    <label><input type="radio" name="economy-attitude" required value="specialist"><span>Профессиональный специалист</span></label>
+                    <label><input type="radio" name="economy-attitude" required value="scientist"><span>Ученый</span></label>
+                    <label><input type="radio" name="economy-attitude" required value="teacher"><span>Преподаватель</span></label>
+                    <label><input type="radio" name="economy-attitude" required value="no-attitude"><span>Не имею отношения</span></label>
+                    <label><input type="radio" name="economy-attitude" required value="other"><span>Другое</span></label>
                 </div>
             </div>
             <div class="submit-container">

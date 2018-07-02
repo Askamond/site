@@ -22,9 +22,10 @@
         width: auto
 
     .timer
+        @extend .card-like
         +apply-colors($primary-light, $primary-text)
         border-radius: 1ex
-        margin-bottom: 1ex
+        margin-bottom: 0.4rem
 
         header
             +apply-colors($primary-color, $primary-text)
@@ -43,7 +44,25 @@
             font-weight: 400
             user-select: none
 
+    .id
+        @extend .card-like
+        +apply-colors($primary-light, $primary-text)
+        +apply-fonts()
+        text-align: center
+        border-radius: 0.3rem
+        margin-bottom: 0.4rem
+        padding-bottom: 0.5rem
+
+        header
+            +apply-colors($primary-color, $primary-text)
+            +apply-header-style()
+            font-weight: 500
+            border-radius: .3rem .3rem 0 0
+            padding: 0.3rem 0
+            margin-bottom: .5rem
+
     nav
+        @extend .card-like
         +apply-colors($primary-light, $primary-text)
         border-radius: 1ex
         padding-bottom: 1.5ex
@@ -130,6 +149,7 @@
         margin-left: 0
 
     .question
+        @extend .card-like
         display: none
         background: $primary-light
         border-radius: 1ex
@@ -166,11 +186,12 @@
             display: flex
             cursor: pointer
             align-content: center
-            padding: 0.5ex 0
+            padding: 1ex 0
             margin: 1ex 1.5ex
             // border-bottom: solid $tretiary-color 0.3ex
             border-radius: 0.3ex
             background: lighten($primary-light, 9)
+            color: black
 
             &:hover
                 background: lighten($primary-light, 13)
@@ -178,9 +199,23 @@
             input
                 display: block
 
+                + span
+                    line-height: normal
+                    height: auto
+
                 &[type="radio"]:checked + span:after
                     background: $secondary-dark
                     border-color: $secondary-dark
+                    top: 0
+                    bottom: 0
+                    margin-top: auto
+                    margin-bottom: auto
+
+                &[type="radio"] + span::before
+                    top: 0
+                    bottom: 0
+                    margin-top: auto
+                    margin-bottom: auto
 
                 &[type="checkbox"]
                     &:checked + span:before
@@ -197,6 +232,7 @@
                         margin-left: 1ex
 
     .buttons-panel
+        @extend .card-like
         +apply-colors($primary-light, $primary-text)
         border-radius: 1ex
         margin-top: 1ex

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Testing page</title>
     <link rel="stylesheet" href="styles/testing.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
     <!-- <link rel="stylesheet" href="styles/selected-materialize.css"> -->
     <script src="scripts/testing.js"></script>
     <script src="scripts/materialize.min.js"></script>
@@ -20,6 +21,12 @@
                 <div class="time-left">
                     1:00:00
                 </div>
+            </div>
+            <div class="id">
+                <header>
+                    Ваш id
+                </header>
+                (id here)
             </div>
             <nav>
                 <header>
@@ -57,9 +64,6 @@
                     <button type="button" class="submit-button">Закончить тест</button>
                 </div>
             </nav>
-            <div class="id">
-                Ваш id: (id here)
-            </div>
         </div>
         <form class="right-column" action="/send_answers" method="post" id="main-form">
             <input type="hidden" name="id" value="(id here)">
